@@ -22,11 +22,10 @@ public class JwtService {
     @Value("${app.jwt.secret}")
     private String secretKey;
 
-    @Value("${app.jwt.access-token-expiration")
+    @Value("${app.jwt.access-token-expiration}")
     private Long accessTokenExpiration;
 
     private SecretKey getSigningKey(){
-
         return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
     }
 

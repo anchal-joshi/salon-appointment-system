@@ -1,30 +1,24 @@
 package com.salon.appointment.dto.request;
 
 import com.salon.appointment.enums.Role;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public class LoginRequest {
 
-    private String name;
+    @NotBlank(message = "Email is required")
+    @Email(message = "Invalid email format")
     private String email;
-    private Role role;
+
+    @NotBlank(message = "Password is required")
+    private String  password;
+
+    public LoginRequest(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     public LoginRequest() {
-    }
-
-    public LoginRequest(String name, String email, Role role) {
-
-        this.name = name;
-        this.email = email;
-        this.role = role;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getEmail() {
@@ -35,11 +29,11 @@ public class LoginRequest {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
+    public String getPassword() {
+        return password;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
