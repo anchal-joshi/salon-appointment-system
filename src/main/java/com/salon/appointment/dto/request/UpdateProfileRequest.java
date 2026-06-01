@@ -4,7 +4,7 @@ package com.salon.appointment.dto.request;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public class UserProfileRequest {
+public class UpdateProfileRequest {
 
     @NotBlank(message = "Name is required")
     private String name;
@@ -13,10 +13,10 @@ public class UserProfileRequest {
     @Pattern(regexp = "^[0-9]{10}$", message = "Phone must be 10 digits")
     private String phone;
 
-    public UserProfileRequest() {
+    public UpdateProfileRequest() {
     }
 
-    public UserProfileRequest(String name, String phone) {
+    public UpdateProfileRequest(String name, String phone) {
         this.name = name;
         this.phone = phone;
     }
