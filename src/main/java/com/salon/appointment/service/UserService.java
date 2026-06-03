@@ -47,8 +47,8 @@ public class UserService {
             throw new AppException("Current Password is incorrect", HttpStatus.BAD_REQUEST);
         }
 
-        if (request.getNewPassword().equals(request.getConfirmPassword())){
-            throw new AppException("New password and confirm password fo not match", HttpStatus.BAD_REQUEST);
+        if (!request.getNewPassword().equals(request.getConfirmPassword())){
+            throw new AppException("New password and confirm password do not match", HttpStatus.BAD_REQUEST);
         }
 
         if (passwordEncoder.matches(request.getNewPassword(), currentUser.getPassword())){
