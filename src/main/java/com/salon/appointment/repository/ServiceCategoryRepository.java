@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface ServiceCategoryRepository extends JpaRepository {
+public interface ServiceCategoryRepository extends JpaRepository<ServiceCategory, Long> {
     List<ServiceCategory>findAllByIsActiveTrue();
     List<ServiceCategory>findAllByServiceTypeAndIsActiveTrue(ServiceType serviceType);
     Optional<ServiceCategory>findByNameIgnoreCase(String name);
