@@ -1,6 +1,6 @@
 package com.salon.appointment.enums;
 
-public enum DaysOfWeek {
+public enum DayOfWeek {
     SUNDAY,
     MONDAY,
     TUESDAY,

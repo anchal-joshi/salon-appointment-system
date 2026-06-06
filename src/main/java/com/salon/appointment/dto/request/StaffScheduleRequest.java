@@ -1,14 +1,14 @@
 package com.salon.appointment.dto.request;
 
+import com.salon.appointment.enums.DayOfWeek;
 import jakarta.validation.constraints.NotNull;
 
-import java.time.DayOfWeek;
 import java.time.LocalTime;
 
 public class StaffScheduleRequest {
 
     @NotNull(message = "Day of week is required")
-    private DayOfWeek dayOfWeek;
+    private com.salon.appointment.enums.DayOfWeek dayOfWeek;
 
     @NotNull(message = "Start time is required")
     private LocalTime startTime;
@@ -22,14 +22,14 @@ public class StaffScheduleRequest {
     public StaffScheduleRequest() {
     }
 
-    public StaffScheduleRequest(DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, boolean isWorking) {
+    public StaffScheduleRequest(com.salon.appointment.enums.DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, boolean isWorking) {
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
         this.isWorking = isWorking;
     }
 
-    public DayOfWeek getDayOfWeek() {
+    public com.salon.appointment.enums.DayOfWeek getDayOfWeek() {
         return dayOfWeek;
     }
 

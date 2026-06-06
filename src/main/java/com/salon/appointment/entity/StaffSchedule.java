@@ -1,5 +1,6 @@
 package com.salon.appointment.entity;
 
+import com.salon.appointment.enums.DayOfWeek;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -18,30 +19,30 @@ public class StaffSchedule {
     @JoinColumn(name = "staff_id", nullable = false)
     private User staff;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private LocalDate leaveDate;
+    private DayOfWeek dayOfWeek;
 
-    @Column
-    private String reason;
-
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false)
     private LocalDateTime createdAt;
 
-    @PrePersist
-    protected void onCreate(){
-        createdAt = LocalDateTime.now();
-    }
+    @Column(nullable = false)
+    private LocalDateTime endTime;
+
+    @Column(nullable = false)
+    private boolean isWorking = true;
 
     public StaffSchedule() {
     }
 
 
-    public StaffSchedule(Long id, User staff, LocalDate leaveDate, String reason, LocalDateTime createdAt) {
+    public StaffSchedule(Long id, User staff, DayOfWeek dayOfWeek, LocalDateTime createdAt, LocalDateTime endTime, boolean isWorking) {
         this.id = id;
         this.staff = staff;
-        this.leaveDate = leaveDate;
-        this.reason = reason;
+        this.dayOfWeek = dayOfWeek;
         this.createdAt = createdAt;
+        this.endTime = endTime;
+        this.isWorking = isWorking;
     }
 
     public Long getId() {
@@ -60,20 +61,28 @@ public class StaffSchedule {
         this.staff = staff;
     }
 
-    public LocalDate getLeaveDate() {
-        return leaveDate;
+    public DayOfWeek getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public void setLeaveDate(LocalDate leaveDate) {
-        this.leaveDate = leaveDate;
+    public void setDayOfWeek(DayOfWeek dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
-    public String getReason() {
-        return reason;
+    public LocalDateTime getEndTime() {
+        return endTime;
     }
 
-    public void setReason(String reason) {
-        this.reason = reason;
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
+
+    public boolean isWorking() {
+        return isWorking;
+    }
+
+    public void setWorking(boolean working) {
+        isWorking = working;
     }
 
     public LocalDateTime getCreatedAt() {

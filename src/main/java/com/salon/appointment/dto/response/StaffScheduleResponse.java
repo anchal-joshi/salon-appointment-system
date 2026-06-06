@@ -1,6 +1,7 @@
 package com.salon.appointment.dto.response;
 
-import java.time.DayOfWeek;
+import com.salon.appointment.enums.DayOfWeek;
+
 import java.time.LocalTime;
 
 public class StaffScheduleResponse {
@@ -8,7 +9,7 @@ public class StaffScheduleResponse {
     private Long id;
     private long staffId;
     private String staffName;
-    private DayOfWeek dayOfWeek;
+    private com.salon.appointment.enums.DayOfWeek dayOfWeek;
     private LocalTime startTime;
     private LocalTime endTime;
     private boolean isWorking;
@@ -17,7 +18,7 @@ public class StaffScheduleResponse {
     }
 
 
-    public StaffScheduleResponse(Long id, long staffId, String staffName, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, boolean isWorking) {
+    public StaffScheduleResponse(Long id, long staffId, String staffName, com.salon.appointment.enums.DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, boolean isWorking) {
         this.id = id;
         this.staffId = staffId;
         this.staffName = staffName;
