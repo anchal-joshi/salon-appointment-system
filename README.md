@@ -1,9 +1,9 @@
 # salon-appointment-system
 Beauty Salon Appointment Management System
-Overview
+#Overview
 A RESTful backend API for a beauty salon built with Spring Boot 3.x and secured with Spring Security 6 + JWT. The system supports three roles — Customer, Staff, and Admin — and handles user authentication, service catalog management, staff scheduling, and leave management. Built as a solo portfolio project with a clean layered architecture and fully tested REST endpoints.
 
-Features
+#Features
 
 JWT authentication with access token (15 min) + refresh token (7 days) rotation
 Role-based access control for CUSTOMER, STAFF, and ADMIN using @PreAuthorize
@@ -17,10 +17,10 @@ Centralized exception handling with structured JSON error responses
 Request validation using Jakarta Bean Validation
 
 
-Tech Stack
+#Tech Stack
 LayerTechnologyLanguageJava 21FrameworkSpring Boot 3.3.xSecuritySpring Security 6 + JWT (jjwt 0.12.6)DatabaseMySQL 8.xORMSpring Data JPA + HibernateValidationJakarta Bean ValidationBuild ToolMavenAPI TestingPostman
 
-Database Design
+#Database Design
 users
   id, name, email (unique), phone, password, role (CUSTOMER/STAFF/ADMIN),
   is_active, created_at, updated_at
@@ -44,7 +44,7 @@ staff_leaves
   id, staff_id (FK → users), leave_date, reason, created_at
   UNIQUE (staff_id, leave_date)
 
-API Endpoints
+#API Endpoints
 Auth
 MethodEndpointAccessDescriptionPOST/api/auth/registerPublicRegister as customerPOST/api/auth/loginPublicLogin and receive tokensPOST/api/auth/refreshPublicRefresh access tokenPOST/api/auth/logoutBearerRevoke refresh tokens
 User — Self
@@ -60,7 +60,7 @@ MethodEndpointAccessDescriptionGET/api/staff/scheduleStaffView own scheduleGET/a
 Admin — Staff Schedule & Leave
 MethodEndpointAccessDescriptionPOST/api/admin/staff/{id}/scheduleAdminSet or update staff scheduleGET/api/admin/staff/{id}/scheduleAdminGet schedule of a staffGET/api/admin/staff/{id}/leavesAdminAll leaves of a staffGET/api/admin/staff/leaves?date=YYYY-MM-DDAdminAll leaves on a dateDELETE/api/admin/staff/leaves/{id}AdminDelete a leave
 
-Installation
+#Installation
 Prerequisites
 
 Java 21
@@ -192,7 +192,7 @@ Content-Type: application/json
   "refreshToken": "d2e1f8a9-b4c7-d6e5..."
 }
 
-Future Improvements
+#Future Improvements
 
 Appointment Booking — Full booking lifecycle with status flow PENDING → CONFIRMED → COMPLETED / CANCELLED and double-booking prevention
 Slot Availability Engine — Auto-generate available time slots based on staff schedule, leaves, and existing bookings
@@ -204,5 +204,7 @@ Email / SMS Integration — Real delivery via SendGrid or Twilio
 Payment Gateway — Online payments via Razorpay or Stripe
 
 
-Author
+#Author
 Anchal Joshi
+LinkedIn: www.linkedin.com/in/anchal-joshi-617516398
+
