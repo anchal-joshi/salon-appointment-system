@@ -16,8 +16,8 @@ public class StaffMapper {
         response.setStaffId(schedule.getId());
         response.setStaffName(schedule.getStaff().getName());
         response.setDayOfWeek(schedule.getDayOfWeek());
-        response.setStartTime(schedule.getCreatedAt().toLocalTime());
-        response.setEndTime(schedule.getEndTime().toLocalTime());
+        response.setStartTime(schedule.getStartTime());
+        response.setEndTime(schedule.getEndTime());
         response.setWorking(schedule.isWorking());
         return response;
     }

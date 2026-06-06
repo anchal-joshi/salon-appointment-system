@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "staff_schedule",
@@ -24,10 +25,10 @@ public class StaffSchedule {
     private DayOfWeek dayOfWeek;
 
     @Column(nullable = false)
-    private LocalDateTime createdAt;
+    private LocalTime startTime;
 
     @Column(nullable = false)
-    private LocalDateTime endTime;
+    private LocalTime endTime;
 
     @Column(nullable = false)
     private boolean isWorking = true;
@@ -36,11 +37,11 @@ public class StaffSchedule {
     }
 
 
-    public StaffSchedule(Long id, User staff, DayOfWeek dayOfWeek, LocalDateTime createdAt, LocalDateTime endTime, boolean isWorking) {
+    public StaffSchedule(Long id, User staff, DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, boolean isWorking) {
         this.id = id;
         this.staff = staff;
         this.dayOfWeek = dayOfWeek;
-        this.createdAt = createdAt;
+        this.startTime = startTime;
         this.endTime = endTime;
         this.isWorking = isWorking;
     }
@@ -69,11 +70,19 @@ public class StaffSchedule {
         this.dayOfWeek = dayOfWeek;
     }
 
-    public LocalDateTime getEndTime() {
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(LocalDateTime endTime) {
+    public void setEndTime(LocalTime endTime) {
         this.endTime = endTime;
     }
 
@@ -85,11 +94,5 @@ public class StaffSchedule {
         isWorking = working;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 }
