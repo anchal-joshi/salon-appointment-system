@@ -42,7 +42,7 @@ public class ServiceCategory {
         updatedAt= LocalDateTime.now();
     }
 
-    @PrePersist
+    @PreUpdate
     protected void onUpdate(){
         updatedAt = LocalDateTime.now();
     }

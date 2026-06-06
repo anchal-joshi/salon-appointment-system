@@ -41,7 +41,7 @@ public class AdminServiceController {
     @PatchMapping("/categories/{id}/toggle")
     public ResponseEntity<ApiResponse<Void>>toggleCategory(@PathVariable Long id){
         serviceCatalogService.toggleCategoryStatus(id);
-        return ResponseEntity.ok(ApiResponse.success("Category status toggles"));
+        return ResponseEntity.ok(ApiResponse.success("Category status toggled"));
     }
 
     @PostMapping
