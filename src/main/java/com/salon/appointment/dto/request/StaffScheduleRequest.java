@@ -17,12 +17,12 @@ public class StaffScheduleRequest {
     private LocalTime endTime;
 
     @NotNull(message = "Working status is required")
-    private boolean isWorking;
+    private Boolean isWorking;
 
     public StaffScheduleRequest() {
     }
 
-    public StaffScheduleRequest(com.salon.appointment.enums.DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, boolean isWorking) {
+    public StaffScheduleRequest(com.salon.appointment.enums.DayOfWeek dayOfWeek, LocalTime startTime, LocalTime endTime, Boolean isWorking) {
         this.dayOfWeek = dayOfWeek;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -53,11 +53,11 @@ public class StaffScheduleRequest {
         this.endTime = endTime;
     }
 
-    public boolean isWorking() {
+    public Boolean isWorking() {
         return isWorking;
     }
 
-    public void setWorking(boolean working) {
+    public void setWorking(Boolean working) {
         isWorking = working;
     }
 }
